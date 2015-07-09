@@ -10,7 +10,7 @@
 * 把LCDownloadManager文件夹(在Demo中)拖到你的项目中。
 * 在相应位置导入头文件: `#import "LCDownloadManager.h"`和`#import "AFNetworking.h"`。
 * 调用下面的方法即可:
-    ``objc
+    ```objc
     AFHTTPRequestOperation *operation = nil;
     
     // 下载
@@ -31,7 +31,7 @@
     
     // 暂停
     [[LCDownloadManager pauseWithOperation:operation];];
-    ````
+    ``
 
 ### 联系 Support
 * 发现问题请lssues我，谢谢:)
