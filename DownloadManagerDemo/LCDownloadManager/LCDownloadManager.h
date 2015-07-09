@@ -14,7 +14,7 @@
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
 
-typedef void(^DownloadProgress)(CGFloat progress, CGFloat totalBytesRead, CGFloat totalBytesExpectedToRead);
+typedef void(^DownloadProgress)(CGFloat progress, CGFloat totalMBRead, CGFloat totalMBExpectedToRead);
 typedef void(^DownloadSuccess)(AFHTTPRequestOperation *operation, id responseObject);
 typedef void(^DownloadFailure)(AFHTTPRequestOperation *operation, NSError *error);
 

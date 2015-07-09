@@ -115,10 +115,17 @@
     // 下载请求
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     
-    // 检查是否已经有该下载任务
+    // 检查是否已经有该下载任务. 如果有, 释放掉...
     for (NSDictionary *dic in [[LCDownloadManager sharedManager] paths]) {
         
-        if ([cachePath isEqualToString:dic[@"path"]] && ![(AFHTTPRequestOperation *)dic[@"operation"] isPaused]) return dic[@"operation"];
+        if ([cachePath isEqualToString:dic[@"path"]] && ![(AFHTTPRequestOperation *)dic[@"operation"] isPaused]) {
+            
+            return dic[@"operation"];
+            
+        } else {
+            
+            [(AFHTTPRequestOperation *)dic[@"operation"] cancel];
+        }
     }
     NSDictionary *dicNew = @{@"path"        : cachePath,
                              @"operation"   : operation};

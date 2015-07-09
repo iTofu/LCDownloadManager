@@ -14,8 +14,9 @@
     AFHTTPRequestOperation *operation = nil;
     
     // 下载
-    operation = [LCDownloadManager downloadFileWithURLString:@"http://mw2.dwstatic.com/2/8/1528/133366-99-1436362095.mp4" cachePath:@"demo2.mp4" progressBlock:^(CGFloat progress, CGFloat totalBytesRead, CGFloat totalBytesExpectedToRead) {
+    operation = [LCDownloadManager downloadFileWithURLString:@"http://mw2.dwstatic.com/2/8/1528/133366-99-1436362095.mp4" cachePath:@"demo2.mp4" progressBlock:^(CGFloat progress, CGFloat totalMBRead, CGFloat totalMBExpectedToRead) {
         
+        // totalMBRead 和 totalMBExpectedToRead 单位是MB
         NSLog(@"%f %f %f", progress, totalBytesRead, totalBytesExpectedToRead);
         
     } successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -24,7 +25,7 @@
         
     } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        if (error.code == -999) NSLog(@"1--Maybe you pause download.");
+        if (error.code == -999) NSLog(@"Maybe you pause download.");
         
         NSLog(@"%@", error);
     }];
