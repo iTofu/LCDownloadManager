@@ -11,6 +11,7 @@
 * 在相应位置导入头文件: `#import "LCDownloadManager.h"`和`#import "AFNetworking.h"`。
 * 调用下面的方法即可:
     ```objc
+    // 当前下载任务
     AFHTTPRequestOperation *operation = nil;
     
     // 下载
