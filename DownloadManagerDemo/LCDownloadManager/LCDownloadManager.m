@@ -10,23 +10,11 @@
 
 @interface LCDownloadManager ()
 
-@property (nonatomic, strong) NSMutableArray *operations;
-
 @property (nonatomic, strong) NSMutableArray *paths;
 
 @end
 
 @implementation LCDownloadManager
-
-- (NSMutableArray *)operations {
-    
-    if (!_operations) {
-        
-        _operations = [[NSMutableArray alloc] init];
-    }
-    
-    return _operations;
-}
 
 - (NSMutableArray *)paths {
     
@@ -38,17 +26,30 @@
     return _paths;
 }
 
-+ (instancetype)sharedManager {
-    
-    static LCDownloadManager *manager = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        manager = [[LCDownloadManager alloc] init];
-    });
-    return manager;
-}
+#pragma mark - 类方法
 
 + (unsigned long long)fileSizeForPath:(NSString *)path {
+    
+    return [[self alloc] fileSizeForPath:path];
+}
+
++ (AFHTTPRequestOperation *)downloadFileWithURLString:(NSString *)URLString cachePath:(NSString *)cachePath progressBlock:(DownloadProgress)progressBlock successBlock:(DownloadSuccess)successBlock failureBlock:(DownloadFailure)failureBlock {
+    
+    return [[self alloc] downloadFileWithURLString:URLString
+                                         cachePath:cachePath
+                                     progressBlock:progressBlock
+                                      successBlock:successBlock
+                                      failureBlock:failureBlock];
+}
+
++ (void)pauseWithOperation:(AFHTTPRequestOperation *)operation {
+    
+    [[self alloc] pauseWithOperation:operation];
+}
+
+#pragma mark - 实例方法
+
+- (unsigned long long)fileSizeForPath:(NSString *)path {
     
     signed long long fileSize = 0;
     
@@ -69,9 +70,7 @@
     return fileSize;
 }
 
-+ (AFHTTPRequestOperation *)downloadFileWithURLString:(NSString *)URLString cachePath:(NSString *)cachePath progressBlock:(DownloadProgress)progressBlock successBlock:(DownloadSuccess)successBlock failureBlock:(DownloadFailure)failureBlock {
-    
-    
+- (AFHTTPRequestOperation *)downloadFileWithURLString:(NSString *)URLString cachePath:(NSString *)cachePath progressBlock:(DownloadProgress)progressBlock successBlock:(DownloadSuccess)successBlock failureBlock:(DownloadFailure)failureBlock {
     
     NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
     
@@ -116,7 +115,7 @@
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     
     // 检查是否已经有该下载任务. 如果有, 释放掉...
-    for (NSDictionary *dic in [[LCDownloadManager sharedManager] paths]) {
+    for (NSDictionary *dic in self.paths) {
         
         if ([cachePath isEqualToString:dic[@"path"]] && ![(AFHTTPRequestOperation *)dic[@"operation"] isPaused]) {
             
@@ -129,7 +128,7 @@
     }
     NSDictionary *dicNew = @{@"path"        : cachePath,
                              @"operation"   : operation};
-    [[[LCDownloadManager sharedManager] paths] addObject:dicNew];
+    [self.paths addObject:dicNew];
     
     // 下载路径
     operation.outputStream = [NSOutputStream outputStreamToFileAtPath:filePath append:YES];
@@ -159,7 +158,7 @@
     return operation;
 }
 
-+ (void)pauseWithOperation:(AFHTTPRequestOperation *)operation {
+- (void)pauseWithOperation:(AFHTTPRequestOperation *)operation {
     
     NSLog(@"Pause download");
     
