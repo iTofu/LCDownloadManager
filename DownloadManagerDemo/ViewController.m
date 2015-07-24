@@ -31,6 +31,7 @@
 
 - (IBAction)downloadBtnClicked {
     
+    // 任务1
     self.operation = [LCDownloadManager downloadFileWithURLString:VIDEO_URL cachePath:@"demo1.mp4" progressBlock:^(CGFloat progress, CGFloat totalMBRead, CGFloat totalMBExpectedToRead) {
         
         NSLog(@"1--%f %f %f", progress, totalMBRead, totalMBExpectedToRead);
@@ -47,24 +48,26 @@
         NSLog(@"1--%@", error);
     }];
     
-    [LCDownloadManager downloadFileWithURLString:@"http://mw2.dwstatic.com/2/8/1528/133366-99-1436362095.mp4" cachePath:@"demo2.mp4" progressBlock:^(CGFloat progress, CGFloat totalMBRead, CGFloat totalMBExpectedToRead) {
-        
-        NSLog(@"2--%f %f %f", progress, totalMBRead, totalMBExpectedToRead);
-        
-    } successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSLog(@"2--Download finish");
-        
-    } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        if (error.code == -999) NSLog(@"2--Maybe you pause download.");
-        
-        NSLog(@"2--%@", error);
-    }];
+//    // 任务2
+//    [LCDownloadManager downloadFileWithURLString:@"http://mw2.dwstatic.com/2/8/1528/133366-99-1436362095.mp4" cachePath:@"demo2.mp4" progressBlock:^(CGFloat progress, CGFloat totalMBRead, CGFloat totalMBExpectedToRead) {
+//        
+//        NSLog(@"2--%f %f %f", progress, totalMBRead, totalMBExpectedToRead);
+//        
+//    } successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        
+//        NSLog(@"2--Download finish");
+//        
+//    } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        
+//        if (error.code == -999) NSLog(@"2--Maybe you pause download.");
+//        
+//        NSLog(@"2--%@", error);
+//    }];
 }
 
 - (IBAction)pauseBtnClicked {
     
+    // 暂停任务1
     [LCDownloadManager pauseWithOperation:self.operation];
 }
 

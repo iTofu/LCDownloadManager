@@ -24,14 +24,6 @@
 		B3771ECF1B4E4CAA00F377B6 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = B3771EB81B4E4CAA00F377B6 /* AFURLRequestSerialization.m */; };
 		B3771ED01B4E4CAA00F377B6 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = B3771EBA1B4E4CAA00F377B6 /* AFURLResponseSerialization.m */; };
 		B3771ED11B4E4CAA00F377B6 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B3771EBC1B4E4CAA00F377B6 /* AFURLSessionManager.m */; };
-		B3771ED21B4E4CAA00F377B6 /* hud_error.png in Resources */ = {isa = PBXBuildFile; fileRef = B3771EBF1B4E4CAA00F377B6 /* hud_error.png */; };
-		B3771ED31B4E4CAA00F377B6 /* hud_error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3771EC01B4E4CAA00F377B6 /* hud_error@2x.png */; };
-		B3771ED41B4E4CAA00F377B6 /* hud_info.png in Resources */ = {isa = PBXBuildFile; fileRef = B3771EC11B4E4CAA00F377B6 /* hud_info.png */; };
-		B3771ED51B4E4CAA00F377B6 /* hud_info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3771EC21B4E4CAA00F377B6 /* hud_info@2x.png */; };
-		B3771ED61B4E4CAA00F377B6 /* hud_success.png in Resources */ = {isa = PBXBuildFile; fileRef = B3771EC31B4E4CAA00F377B6 /* hud_success.png */; };
-		B3771ED71B4E4CAA00F377B6 /* hud_success@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3771EC41B4E4CAA00F377B6 /* hud_success@2x.png */; };
-		B3771ED81B4E4CAA00F377B6 /* LCProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B3771EC61B4E4CAA00F377B6 /* LCProgressHUD.m */; };
-		B3771ED91B4E4CAA00F377B6 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B3771EC81B4E4CAA00F377B6 /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,16 +71,6 @@
 		B3771EBA1B4E4CAA00F377B6 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		B3771EBB1B4E4CAA00F377B6 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		B3771EBC1B4E4CAA00F377B6 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
-		B3771EBF1B4E4CAA00F377B6 /* hud_error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hud_error.png; sourceTree = "<group>"; };
-		B3771EC01B4E4CAA00F377B6 /* hud_error@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hud_error@2x.png"; sourceTree = "<group>"; };
-		B3771EC11B4E4CAA00F377B6 /* hud_info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hud_info.png; sourceTree = "<group>"; };
-		B3771EC21B4E4CAA00F377B6 /* hud_info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hud_info@2x.png"; sourceTree = "<group>"; };
-		B3771EC31B4E4CAA00F377B6 /* hud_success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hud_success.png; sourceTree = "<group>"; };
-		B3771EC41B4E4CAA00F377B6 /* hud_success@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hud_success@2x.png"; sourceTree = "<group>"; };
-		B3771EC51B4E4CAA00F377B6 /* LCProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCProgressHUD.h; sourceTree = "<group>"; };
-		B3771EC61B4E4CAA00F377B6 /* LCProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCProgressHUD.m; sourceTree = "<group>"; };
-		B3771EC71B4E4CAA00F377B6 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		B3771EC81B4E4CAA00F377B6 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +113,6 @@
 			isa = PBXGroup;
 			children = (
 				B3771EA91B4E4CAA00F377B6 /* AFNetworking */,
-				B3771EBD1B4E4CAA00F377B6 /* LCProgressHUD */,
 				B3771EA51B4E4C9100F377B6 /* LCDownloadManager */,
 				B3771E831B4E4C7E00F377B6 /* AppDelegate.h */,
 				B3771E841B4E4C7E00F377B6 /* AppDelegate.m */,
@@ -204,31 +185,6 @@
 				B3771EBC1B4E4CAA00F377B6 /* AFURLSessionManager.m */,
 			);
 			path = AFNetworking;
-			sourceTree = "<group>";
-		};
-		B3771EBD1B4E4CAA00F377B6 /* LCProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				B3771EBE1B4E4CAA00F377B6 /* HUDImage */,
-				B3771EC51B4E4CAA00F377B6 /* LCProgressHUD.h */,
-				B3771EC61B4E4CAA00F377B6 /* LCProgressHUD.m */,
-				B3771EC71B4E4CAA00F377B6 /* MBProgressHUD.h */,
-				B3771EC81B4E4CAA00F377B6 /* MBProgressHUD.m */,
-			);
-			path = LCProgressHUD;
-			sourceTree = "<group>";
-		};
-		B3771EBE1B4E4CAA00F377B6 /* HUDImage */ = {
-			isa = PBXGroup;
-			children = (
-				B3771EBF1B4E4CAA00F377B6 /* hud_error.png */,
-				B3771EC01B4E4CAA00F377B6 /* hud_error@2x.png */,
-				B3771EC11B4E4CAA00F377B6 /* hud_info.png */,
-				B3771EC21B4E4CAA00F377B6 /* hud_info@2x.png */,
-				B3771EC31B4E4CAA00F377B6 /* hud_success.png */,
-				B3771EC41B4E4CAA00F377B6 /* hud_success@2x.png */,
-			);
-			path = HUDImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,14 +267,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3771ED31B4E4CAA00F377B6 /* hud_error@2x.png in Resources */,
 				B3771E8B1B4E4C7E00F377B6 /* Main.storyboard in Resources */,
 				B3771E901B4E4C7E00F377B6 /* LaunchScreen.xib in Resources */,
-				B3771ED61B4E4CAA00F377B6 /* hud_success.png in Resources */,
-				B3771ED71B4E4CAA00F377B6 /* hud_success@2x.png in Resources */,
-				B3771ED41B4E4CAA00F377B6 /* hud_info.png in Resources */,
-				B3771ED21B4E4CAA00F377B6 /* hud_error.png in Resources */,
-				B3771ED51B4E4CAA00F377B6 /* hud_info@2x.png in Resources */,
 				B3771E8D1B4E4C7E00F377B6 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,11 +290,9 @@
 				B3771EA81B4E4C9100F377B6 /* LCDownloadManager.m in Sources */,
 				B3771ECD1B4E4CAA00F377B6 /* AFSecurityPolicy.m in Sources */,
 				B3771E881B4E4C7E00F377B6 /* ViewController.m in Sources */,
-				B3771ED81B4E4CAA00F377B6 /* LCProgressHUD.m in Sources */,
 				B3771ECA1B4E4CAA00F377B6 /* AFHTTPRequestOperationManager.m in Sources */,
 				B3771ECE1B4E4CAA00F377B6 /* AFURLConnectionOperation.m in Sources */,
 				B3771EC91B4E4CAA00F377B6 /* AFHTTPRequestOperation.m in Sources */,
-				B3771ED91B4E4CAA00F377B6 /* MBProgressHUD.m in Sources */,
 				B3771E851B4E4C7E00F377B6 /* AppDelegate.m in Sources */,
 				B3771ECF1B4E4CAA00F377B6 /* AFURLRequestSerialization.m in Sources */,
 				B3771ECB1B4E4CAA00F377B6 /* AFHTTPSessionManager.m in Sources */,
@@ -548,6 +496,7 @@
 				B3771EA11B4E4C7E00F377B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B3771EA21B4E4C7E00F377B6 /* Build configuration list for PBXNativeTarget "DownloadManagerDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -556,6 +505,7 @@
 				B3771EA41B4E4C7E00F377B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
