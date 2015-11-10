@@ -41,7 +41,7 @@
     }];
     
     // 暂停(提供了类方法和实例方法，根据使用习惯调用)
-    [[LCDownloadManager pauseWithOperation:operation1];];
+    [LCDownloadManager pauseWithOperation:operation1];
     ```
 
 
