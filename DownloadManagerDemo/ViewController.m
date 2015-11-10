@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import "LCDownloadManager.h"
-#import "AFNetworking.h"
 
 #define VIDEO_URL @"http://mw5.dwstatic.com/1/3/1528/133489-99-1436409822.mp4"
 
