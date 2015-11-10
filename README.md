@@ -2,7 +2,7 @@
 
 ###### 致谢 [AFNetworking](https://github.com/AFNetworking/AFNetworking)！
 
-一个简单易用的的下载助手。依赖于AFN，实现断点续传，采取 Block 回调下载进度、文件大小、下载是否完成等。
+一个简单易用的的下载助手。依赖于 AFN，实现断点续传，采取 Block 回调下载进度、文件大小、下载是否完成等。
 
 
     基于 AFNetworking 2.0
@@ -17,7 +17,7 @@
 * 
   - 方法一：[CocoaPods](https://cocoapods.org/) 导入：`pod 'LCDownloadManager'`
   - 方法二：把 LCDownloadManager 文件夹 (在 Demo 中) 拖到你的项目中。
-* 在相应位置导入头文件: `#import "LCDownloadManager.h"`和`#import "AFNetworking.h"`。
+* 在相应位置导入头文件: `#import "LCDownloadManager.h"`。
 * 调用下面的方法即可:
     ```objc
     // 当前下载任务
@@ -61,7 +61,7 @@
   2. 在 `NSAppTransportSecurity` 下添加 `NSAllowsArbitraryLoads`，类型 `Boolean`，值设为 `YES`
 
 ### 联系 Support
-* 发现问题请Issues我，谢谢:)
+* 发现问题请 Issues 我，谢谢:)
 * Email:leoios@sina.com
 * Blog: http://www.leodong.com/
 
