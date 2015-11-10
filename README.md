@@ -51,14 +51,14 @@
 
 
 ### 更新日志 2015.07.10 Update Logs (Tag: 1.0.0)
-* 修复一个重要BUG。这个BUG导致多任务下载时，不能正常暂停对应任务。
+* 修复一个重要 BUG。这个 BUG 导致多任务下载时，不能正常暂停对应任务。
 * 提供类方法和实例方法，根据使用习惯调用。
 
 
 ### 提示 Tips
 * [iOS9 HTTP 不能正常使用的解决办法](http://segmentfault.com/a/1190000002933776) (By [isteven](http://segmentfault.com/u/isteven))
-  1. 在 Info.plist 中添加 NSAppTransportSecurity，类型 Dictionary
-  2. 在 NSAppTransportSecurity 下添加 NSAllowsArbitraryLoads，类型 Boolean，值设为 YES
+  1. 在 `Info.plist` 中添加 `NSAppTransportSecurity`，类型 `Dictionary`
+  2. 在 `NSAppTransportSecurity` 下添加 `NSAllowsArbitraryLoads`，类型 `Boolean`，值设为 `YES`
 
 ### 联系 Support
 * 发现问题请Issues我，谢谢:)
