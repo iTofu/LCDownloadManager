@@ -1,9 +1,10 @@
 ## LCDownloadManager
 一个简单易用的的下载助手。依赖于AFN，实现断点续传，采取Block方式回调下载进度、文件大小、下载是否完成等。
 
-```
-基于 AFN 2.0
-```
+    ```
+    致谢 [AFNetworking](https://github.com/AFNetworking/AFNetworking)！
+    基于 [AFNetworking](https://github.com/AFNetworking/AFNetworking) 2.0
+    ```
 
 
 ### 前言 Foreword
@@ -11,42 +12,49 @@
 
 
 ### 代码 Code
-* 把LCDownloadManager文件夹(在Demo中)拖到你的项目中。
+* 
+  - 方法一：[CocoaPods](https://cocoapods.org/) 导入：`pod 'LCDownloadManager'`
+  - 方法二：把 LCDownloadManager 文件夹 (在 Demo 中) 拖到你的项目中。
 * 在相应位置导入头文件: `#import "LCDownloadManager.h"`和`#import "AFNetworking.h"`。
 * 调用下面的方法即可:
     ```objc
     // 当前下载任务
-    AFHTTPRequestOperation *operation = nil;
+    AFHTTPRequestOperation *operation1 = nil;
     
     // 下载(提供了类方法和实例方法，根据使用习惯调用)
-    operation = [LCDownloadManager downloadFileWithURLString:@"http://mw2.dwstatic.com/2/8/1528/133366-99-1436362095.mp4" cachePath:@"demo2.mp4" progressBlock:^(CGFloat progress, CGFloat totalMBRead, CGFloat totalMBExpectedToRead) {
+    operation1 = [LCDownloadManager downloadFileWithURLString:@"http://mw2.dwstatic.com/2/8/1528/133366-99-1436362095.mp4" cachePath:@"demo2.mp4" progress:^(CGFloat progress, CGFloat totalMBRead, CGFloat totalMBExpectedToRead) {
         
         // totalMBRead 和 totalMBExpectedToRead 单位是MB
-        NSLog(@"%f %f %f", progress, totalBytesRead, totalBytesExpectedToRead);
+        NSLog(@"Task1 -> progress: %.2f -> download: %fMB -> all: %fMB", progress, totalMBRead, totalMBExpectedToRead);
         
-    } successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        NSLog(@"Download finish");
+        NSLog(@"Task1 -> Download finish");
         
-    } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        if (error.code == -999) NSLog(@"Maybe you pause download.");
+        if (error.code == -999) NSLog(@"Task1 -> Maybe you pause download.");
         
-        NSLog(@"%@", error);
+        NSLog(@"Task1 -> %@", error);
     }];
     
     // 暂停(提供了类方法和实例方法，根据使用习惯调用)
-    [[LCDownloadManager pauseWithOperation:operation];];
+    [[LCDownloadManager pauseWithOperation:operation1];];
     ```
 
 
-### 更新日志 2015.07.10 Update Logs
+### 更新日志 2015.11.10 Update Logs (Tag: 1.0.1)
+* 添加对 [CocoaPods](https://cocoapods.org/) 的支持：`pod 'LCDownloadManager'`
+* Demo 中添加演示如何防止用户重复点击下载，后续抽时间在库中实现。
+
+
+### 更新日志 2015.07.10 Update Logs (Tag: 1.0.0)
 * 修复一个重要BUG。这个BUG导致多任务下载时，不能正常暂停对应任务。
 * 提供类方法和实例方法，根据使用习惯调用。
 
 
 ### 联系 Support
-* 发现问题请lssues我，谢谢:)
+* 发现问题请Issues我，谢谢:)
 * Email:leoios@sina.com
 * Blog: http://www.leodong.com/
 
