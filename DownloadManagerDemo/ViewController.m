@@ -16,7 +16,9 @@
 
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 
-@property (nonatomic, strong) AFHTTPRequestOperation *operation;
+@property (nonatomic, strong) AFHTTPRequestOperation *operation1;
+
+@property (nonatomic, assign, getter=isNowDownload) BOOL nowDownload;
 
 @end
 
@@ -31,44 +33,51 @@
 
 - (IBAction)downloadBtnClicked {
     
+    // 禁止重复下载
+    if (self.isNowDownload) return;
+    
+    self.nowDownload = YES;
+    
     // 任务1
-    self.operation = [LCDownloadManager downloadFileWithURLString:VIDEO_URL cachePath:@"demo1.mp4" progressBlock:^(CGFloat progress, CGFloat totalMBRead, CGFloat totalMBExpectedToRead) {
+    self.operation1 = [LCDownloadManager downloadFileWithURLString:VIDEO_URL cachePath:@"demo1.mp4" progress:^(CGFloat progress, CGFloat totalMBRead, CGFloat totalMBExpectedToRead) {
         
-        NSLog(@"1--%f %f %f", progress, totalMBRead, totalMBExpectedToRead);
+        NSLog(@"Task1 -> progress: %.2f -> download: %fMB -> all: %fMB", progress, totalMBRead, totalMBExpectedToRead);
         self.progressView.progress = progress;
         
-    } successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        NSLog(@"1--Download finish");
+        NSLog(@"Task1 -> Download finish");
         
-    } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        if (error.code == -999) NSLog(@"1--Maybe you pause download.");
+        if (error.code == -999) NSLog(@"Task1 -> Maybe you pause download.");
         
-        NSLog(@"1--%@", error);
+        NSLog(@"Task1 -> %@", error);
     }];
     
 //    // 任务2
 //    [LCDownloadManager downloadFileWithURLString:@"http://mw2.dwstatic.com/2/8/1528/133366-99-1436362095.mp4" cachePath:@"demo2.mp4" progressBlock:^(CGFloat progress, CGFloat totalMBRead, CGFloat totalMBExpectedToRead) {
 //        
-//        NSLog(@"2--%f %f %f", progress, totalMBRead, totalMBExpectedToRead);
+//        NSLog(@"Task2 -> progress: %.2f -> download: %fMB -> all: %fMB", progress, totalMBRead, totalMBExpectedToRead);
 //        
 //    } successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        
-//        NSLog(@"2--Download finish");
+//        NSLog(@"Task2 -> Download finish");
 //        
 //    } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
 //        
-//        if (error.code == -999) NSLog(@"2--Maybe you pause download.");
+//        if (error.code == -999) NSLog(@"Task2 -> Maybe you pause download.");
 //        
-//        NSLog(@"2--%@", error);
+//        NSLog(@"Task2 -> %@", error);
 //    }];
 }
 
 - (IBAction)pauseBtnClicked {
     
+    self.nowDownload = NO;
+    
     // 暂停任务1
-    [LCDownloadManager pauseWithOperation:self.operation];
+    [LCDownloadManager pauseWithOperation:self.operation1];
 }
 
 @end

@@ -9,14 +9,14 @@
 //  (实现了断点续传功能)
 //
 //  依赖库:
-//  AFNetworking:    https://github.com/AFNetworking/AFNetworking
+//  AFNetworking 2.0:   https://github.com/AFNetworking/AFNetworking
 
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
 
-typedef void(^DownloadProgress)(CGFloat progress, CGFloat totalMBRead, CGFloat totalMBExpectedToRead);
-typedef void(^DownloadSuccess)(AFHTTPRequestOperation *operation, id responseObject);
-typedef void(^DownloadFailure)(AFHTTPRequestOperation *operation, NSError *error);
+typedef void(^DownloadProgressBlock)(CGFloat progress, CGFloat totalMBRead, CGFloat totalMBExpectedToRead);
+typedef void(^DownloadSuccessBlock)(AFHTTPRequestOperation *operation, id responseObject);
+typedef void(^DownloadFailureBlock)(AFHTTPRequestOperation *operation, NSError *error);
 
 @interface LCDownloadManager : NSObject
 
@@ -26,7 +26,7 @@ typedef void(^DownloadFailure)(AFHTTPRequestOperation *operation, NSError *error
  *  开始下载文件
  *
  *  @param URLString     文件链接
- *  @param path          本地路径
+ *  @param path          本地路径 (已做处理，传个 `xx.xxx` 即可，如 `demo.mp3`)
  *  @param progressBlock 进度回调
  *  @param successBlock  成功回调
  *  @param failureBlock  失败回调
@@ -34,10 +34,10 @@ typedef void(^DownloadFailure)(AFHTTPRequestOperation *operation, NSError *error
  *  @return 下载任务
  */
 + (AFHTTPRequestOperation *)downloadFileWithURLString:(NSString *)URLString
-                                             cachePath:(NSString *)cachePath
-                                        progressBlock:(DownloadProgress)progressBlock
-                                         successBlock:(DownloadSuccess)successBlock
-                                         failureBlock:(DownloadFailure)failureBlock;
+                                            cachePath:(NSString *)cachePath
+                                             progress:(DownloadProgressBlock)progressBlock
+                                              success:(DownloadSuccessBlock)successBlock
+                                              failure:(DownloadFailureBlock)failureBlock;
 /**
  *  暂停下载文件
  *
@@ -60,7 +60,7 @@ typedef void(^DownloadFailure)(AFHTTPRequestOperation *operation, NSError *error
  *  开始下载文件
  *
  *  @param URLString     文件链接
- *  @param path          本地路径
+ *  @param path          本地路径 (已做处理，传个 `xx.xxx` 即可，如 `demo.mp3`)
  *  @param progressBlock 进度回调
  *  @param successBlock  成功回调
  *  @param failureBlock  失败回调
@@ -69,9 +69,9 @@ typedef void(^DownloadFailure)(AFHTTPRequestOperation *operation, NSError *error
  */
 - (AFHTTPRequestOperation *)downloadFileWithURLString:(NSString *)URLString
                                             cachePath:(NSString *)cachePath
-                                        progressBlock:(DownloadProgress)progressBlock
-                                         successBlock:(DownloadSuccess)successBlock
-                                         failureBlock:(DownloadFailure)failureBlock;
+                                             progress:(DownloadProgressBlock)progressBlock
+                                              success:(DownloadSuccessBlock)successBlock
+                                              failure:(DownloadFailureBlock)failureBlock;
 /**
  *  暂停下载文件
  *

@@ -33,13 +33,13 @@
     return [[self alloc] fileSizeForPath:path];
 }
 
-+ (AFHTTPRequestOperation *)downloadFileWithURLString:(NSString *)URLString cachePath:(NSString *)cachePath progressBlock:(DownloadProgress)progressBlock successBlock:(DownloadSuccess)successBlock failureBlock:(DownloadFailure)failureBlock {
++ (AFHTTPRequestOperation *)downloadFileWithURLString:(NSString *)URLString cachePath:(NSString *)cachePath progress:(DownloadProgressBlock)progressBlock success:(DownloadSuccessBlock)successBlock failure:(DownloadFailureBlock)failureBlock {
     
     return [[self alloc] downloadFileWithURLString:URLString
                                          cachePath:cachePath
-                                     progressBlock:progressBlock
-                                      successBlock:successBlock
-                                      failureBlock:failureBlock];
+                                          progress:progressBlock
+                                           success:successBlock
+                                           failure:failureBlock];
 }
 
 + (void)pauseWithOperation:(AFHTTPRequestOperation *)operation {
@@ -70,12 +70,12 @@
     return fileSize;
 }
 
-- (AFHTTPRequestOperation *)downloadFileWithURLString:(NSString *)URLString cachePath:(NSString *)cachePath progressBlock:(DownloadProgress)progressBlock successBlock:(DownloadSuccess)successBlock failureBlock:(DownloadFailure)failureBlock {
+- (AFHTTPRequestOperation *)downloadFileWithURLString:(NSString *)URLString cachePath:(NSString *)cachePath progress:(DownloadProgressBlock)progressBlock success:(DownloadSuccessBlock)successBlock failure:(DownloadFailureBlock)failureBlock {
     
     NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
     
     // 下载文件本地文件夹 (此处是为了下载视频所以`/Video`)
-    // 提醒: 下载文件到Download目录下一定要给用户提示, 为了审核!! 如: http://github.com/LeoiOS/LCProgressHUD
+    // 提醒: 下载文件到 Download 目录下建议给用户提示, 为了审核!! 例如使用 HUD: http://github.com/LeoiOS/LCProgressHUD
     NSString *videoDir = [NSString stringWithFormat:@"%@/Download/Video", docPath];
     BOOL isDir = NO;
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -91,7 +91,7 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:URLString]];
     unsigned long long downloadedBytes = 0;
     
-    NSLog(@"%@", filePath);
+    NSLog(@"%s -> Line:%d -> FilePath:\n%@", __func__, __LINE__, filePath);
     
     if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
         
@@ -126,8 +126,8 @@
             [(AFHTTPRequestOperation *)dic[@"operation"] cancel];
         }
     }
-    NSDictionary *dicNew = @{@"path"        : cachePath,
-                             @"operation"   : operation};
+    NSDictionary *dicNew = @{@"path"      : cachePath,
+                             @"operation" : operation};
     [self.paths addObject:dicNew];
     
     // 下载路径
@@ -154,7 +154,7 @@
     
     [operation start];
     
-    // 为了做暂停，把这个下载任务返回
+    // 为了做暂停功能，把这个下载任务返回
     return operation;
 }
 
