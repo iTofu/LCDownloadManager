@@ -55,15 +55,15 @@
     }];
     
 //    // 任务2
-//    [LCDownloadManager downloadFileWithURLString:@"http://mw2.dwstatic.com/2/8/1528/133366-99-1436362095.mp4" cachePath:@"demo2.mp4" progressBlock:^(CGFloat progress, CGFloat totalMBRead, CGFloat totalMBExpectedToRead) {
+//    [LCDownloadManager downloadFileWithURLString:@"http://mw2.dwstatic.com/2/8/1528/133366-99-1436362095.mp4" cachePath:@"demo2.mp4" progress:^(CGFloat progress, CGFloat totalMBRead, CGFloat totalMBExpectedToRead) {
 //        
 //        NSLog(@"Task2 -> progress: %.2f -> download: %fMB -> all: %fMB", progress, totalMBRead, totalMBExpectedToRead);
 //        
-//    } successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+//    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        
 //        NSLog(@"Task2 -> Download finish");
 //        
-//    } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 //        
 //        if (error.code == -999) NSLog(@"Task2 -> Maybe you pause download.");
 //        
