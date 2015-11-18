@@ -2,12 +2,11 @@
 
 一个简单易用的的下载助手。依赖于 AFN，实现断点续传，采取 Block 回调下载进度、文件大小、下载是否完成等。
 
+    心有猛虎，细嗅蔷薇。
 
-    基于 AFNetworking 2.0
-
-
-
-###### 致谢 [AFNetworking](https://github.com/AFNetworking/AFNetworking)！
+> 致谢 [AFNetworking](https://github.com/AFNetworking/AFNetworking)！
+>
+> 基于 [AFNetworking](https://github.com/AFNetworking/AFNetworking) 2.0
 
 
 
