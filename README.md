@@ -1,6 +1,4 @@
-## LCDownloadManager
-
-###### 致谢 [AFNetworking](https://github.com/AFNetworking/AFNetworking)！
+# LCDownloadManager
 
 一个简单易用的的下载助手。依赖于 AFN，实现断点续传，采取 Block 回调下载进度、文件大小、下载是否完成等。
 
@@ -9,8 +7,13 @@
 
 
 
+###### 致谢 [AFNetworking](https://github.com/AFNetworking/AFNetworking)！
+
+
+
 ### 前言 Foreword
 一个用来处理下载的库，基于AFN，实现了好几个东西，时间有限暂不一一说明，具体看代码。
+
 
 
 ### 代码 Code
@@ -50,9 +53,11 @@
 * Demo 中添加演示如何防止用户重复点击下载，后续抽时间在库中实现。
 
 
+
 ### 更新日志 2015.07.10 Update Logs (Tag: 1.0.0)
 * 修复一个重要 BUG。这个 BUG 导致多任务下载时，不能正常暂停对应任务。
 * 提供类方法和实例方法，根据使用习惯调用。
+
 
 
 ### 提示 Tips
@@ -60,10 +65,13 @@
   1. 在 `Info.plist` 中添加 `NSAppTransportSecurity`，类型 `Dictionary`
   2. 在 `NSAppTransportSecurity` 下添加 `NSAllowsArbitraryLoads`，类型 `Boolean`，值设为 `YES`
 
+
+
 ### 联系 Support
 * 发现问题请 Issues 我，谢谢:)
 * Email:leoios@sina.com
 * Blog: http://www.leodong.com/
+
 
 
 ### 授权 License
