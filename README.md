@@ -8,7 +8,7 @@
 >
 > 基于 [AFNetworking](https://github.com/AFNetworking/AFNetworking) 2.0
 
-
+**由于 iOS9 和 AFN 的变动，以及某些方面的考虑不周，该库将会抽空重写，不建议继续集成到公司项目，请慎用！**
 
 ### 前言 Foreword
 一个用来处理下载的库，基于AFN，实现了好几个东西，时间有限暂不一一说明，具体看代码。
