@@ -6,10 +6,10 @@
 //  Copyright (c) 2015年 Leo. All rights reserved.
 //
 //  下载助手
-//  (实现了断点续传功能)
+//  (实现断点续传等功能)
 //
 //  依赖库:
-//  AFNetworking 2.0:   https://github.com/AFNetworking/AFNetworking
+//  AFNetworking 2.x:   https://github.com/AFNetworking/AFNetworking
 
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
